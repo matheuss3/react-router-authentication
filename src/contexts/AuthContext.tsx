@@ -14,8 +14,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 
   let signin = (newUser: string, callback: VoidFunction) => {
     return fakeAuthProvider.signin(() => {
-      console.log('Cheguei aq')
-      console.log(newUser)
       setUser(newUser);
       callback();
     });

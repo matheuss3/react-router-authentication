@@ -1,17 +1,15 @@
 import { useContext } from "react"
-import { Outlet, useNavigate } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
 
 function Logged() {
   const authContext = useContext(AuthContext)
-  const navigate = useNavigate()
 
   return (
     <div>
       <div>Logado como {authContext.user}</div>
-      <button onClick={() => authContext.signout(() => navigate('/public'))}>logout</button>
+      <button onClick={() => authContext.signout(() => console.log('Logout'))}>logout</button>
     </div>
-    
   )
 }
 

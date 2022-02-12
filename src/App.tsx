@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { BrowserRouter, Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { Header } from "./components/Header";
 import { AuthContext } from "./contexts/AuthContext";
-import { Home } from "./pages/Home";
+import { Protected } from "./pages/Protected";
 import { Login } from "./pages/Login"
 import { NoMatch } from "./pages/NoMatch";
 import { Public } from "./pages/Public";
@@ -32,13 +32,12 @@ function App() {
           <Route path='login' element={<Login />}></Route>
           <Route path='public' element={<Public />}></Route>
           <Route path='protected' element={
-            <RequireAuth><Home /></RequireAuth>
+            <RequireAuth><Protected /></RequireAuth>
           }></Route>
         </Route>
         <Route path="*" element={<NoMatch />}></Route>
       </Routes>
     </BrowserRouter>
-    
   )
 }
 
